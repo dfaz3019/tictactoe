@@ -33,3 +33,17 @@
 #cell-7, #cell-8, #cell-9 {
     border-top: 2px solid black;
 }
+
+.xCell {
+    background-image: url("./images/x.svg");
+}
+
+.circleCell {
+    background-image: url("./images/circle.svg");
+}
+
+.xCell, .circleCell {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
