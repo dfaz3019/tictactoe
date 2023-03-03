@@ -19,12 +19,12 @@ initialiseCells();
 addCellEvents();
 
 const updateCellImage = (cell) => {
-    if (cell.textContent === '') {
+    if (!cell.className.includes("xCell") && !cell.className.includes("circleCell")) {
         cell.classList.add('xCell')
-    } else if (cell.classList.contains('xCell')) {
+    } else if (cell.className.includes('xCell')) {
         cell.classList.replace('xCell', 'circleCell')
-    } else if (cell.classList.contains('circleCell')) {
-        cell.classtList.replace('circleCell', '')
+    } else if (cell.className.includes('circleCell')) {
+        cell.classList.remove('circleCell');
     }
 }
 
