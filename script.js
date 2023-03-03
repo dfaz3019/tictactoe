@@ -18,12 +18,14 @@ function randomNumber () {
 }
 
 function inputValue () {
-    if (cellOne.textContent === '') {
+    if (cellOne.textContent === 'O') {
+        cellOne.textContent = ''
+    } else if (cellOne.textContent === 'X') {
         cellOne.textContent = 'O'
     } else if (cellOne.textContent === 'O') {
         cellOne.textContent = 'X'
-    } else if (cellOne.textContent === 'X') {
-        cellOne.textContent = 'O'
+    } else if (cellOne.textContent === '') {
+        cellOne.textContent = 'X'
     }
 }
 
