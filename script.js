@@ -19,6 +19,6 @@ function randomNumber () {
 cellOne.addEventListener('click', () => {
     cellOne.textContent = 'X';
     const roundedNumber = randomNumber();
-    const randomCell = document.querySelector(`'.cell-${roundedNumber}`)
-    randomCell.textConten = 'O'
+    const randomCell = document.querySelector(`.cell-${roundedNumber}`)
+    randomCell.textContent = 'O'
 })
