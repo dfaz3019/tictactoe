@@ -18,7 +18,16 @@ const initialiseCells = () => {
         cells[i] = document.querySelector(`#cell-${i+1}`);
     }
 }
+
+const addCellEvents = () => {
+    for(let i = 0; i < cells.length; i++){
+        cells[i].addEventListener("click", (e) => {
+            console.log(e.target.id);
+        });
+    }
+}
 initialiseCells();
+addCellEvents();
 // cell reference example end
 
 /* Function to generate a random number between 1-9 */
@@ -29,124 +38,124 @@ function randomNumber () {
     return roundedNumber;
 }
 
-function inputValueCellOne () {
-    if (cellOne.textContent === 'X') {
-        cellOne.textContent = ''
-    } else if (cellOne.textContent === 'X') {
-        cellOne.textContent = 'O'
-    } else if (cellOne.textContent === 'O') {
-        cellOne.textContent = 'X'
-    } else if (cellOne.textContent === '') {
-        cellOne.textContent = 'O'
-    }
-}
+// function inputValueCellOne () {
+//     if (cellOne.textContent === 'X') {
+//         cellOne.textContent = ''
+//     } else if (cellOne.textContent === 'X') {
+//         cellOne.textContent = 'O'
+//     } else if (cellOne.textContent === 'O') {
+//         cellOne.textContent = 'X'
+//     } else if (cellOne.textContent === '') {
+//         cellOne.textContent = 'O'
+//     }
+// }
 
-function inputValueCellTwo () {
-    if (cellTwo.textContent === 'X') {
-        cellTwo.textContent = ''
-    } else if (cellTwo.textContent === 'X') {
-        cellTwo.textContent = 'O'
-    } else if (cellTwo.textContent === 'O') {
-        cellTwo.textContent = 'X'
-    } else if (cellTwo.textContent === '') {
-        cellTwo.textContent = 'O'
-    }
-}
+// function inputValueCellTwo () {
+//     if (cellTwo.textContent === 'X') {
+//         cellTwo.textContent = ''
+//     } else if (cellTwo.textContent === 'X') {
+//         cellTwo.textContent = 'O'
+//     } else if (cellTwo.textContent === 'O') {
+//         cellTwo.textContent = 'X'
+//     } else if (cellTwo.textContent === '') {
+//         cellTwo.textContent = 'O'
+//     }
+// }
 
-function inputValueCellThree () {
-    if (cellThree.textContent === 'X') {
-        cellThree.textContent = ''
-    } else if (cellThree.textContent === 'X') {
-        cellThree.textContent = 'O'
-    } else if (cellThree.textContent === 'O') {
-        cellThree.textContent = 'X'
-    } else if (cellThree.textContent === '') {
-        cellThree.textContent = 'O'
-    }
-}
+// function inputValueCellThree () {
+//     if (cellThree.textContent === 'X') {
+//         cellThree.textContent = ''
+//     } else if (cellThree.textContent === 'X') {
+//         cellThree.textContent = 'O'
+//     } else if (cellThree.textContent === 'O') {
+//         cellThree.textContent = 'X'
+//     } else if (cellThree.textContent === '') {
+//         cellThree.textContent = 'O'
+//     }
+// }
 
-function inputValueCellFour () {
-    if (cellFour.textContent === 'X') {
-        cellFour.textContent = ''
-    } else if (cellFour.textContent === 'X') {
-        cellFour.textContent = 'O'
-    } else if (cellFour.textContent === 'O') {
-        cellFour.textContent = 'X'
-    } else if (cellFour.textContent === '') {
-        cellFour.textContent = 'O'
-    }
-}
+// function inputValueCellFour () {
+//     if (cellFour.textContent === 'X') {
+//         cellFour.textContent = ''
+//     } else if (cellFour.textContent === 'X') {
+//         cellFour.textContent = 'O'
+//     } else if (cellFour.textContent === 'O') {
+//         cellFour.textContent = 'X'
+//     } else if (cellFour.textContent === '') {
+//         cellFour.textContent = 'O'
+//     }
+// }
 
-function inputValueCellFive () {
-    if (cellFive.textContent === 'X') {
-        cellFive.textContent = ''
-    } else if (cellFive.textContent === 'X') {
-        cellFive.textContent = 'O'
-    } else if (cellFive.textContent === 'O') {
-        cellFive.textContent = 'X'
-    } else if (cellFive.textContent === '') {
-        cellFive.textContent = 'O'
-    }
-}
+// function inputValueCellFive () {
+//     if (cellFive.textContent === 'X') {
+//         cellFive.textContent = ''
+//     } else if (cellFive.textContent === 'X') {
+//         cellFive.textContent = 'O'
+//     } else if (cellFive.textContent === 'O') {
+//         cellFive.textContent = 'X'
+//     } else if (cellFive.textContent === '') {
+//         cellFive.textContent = 'O'
+//     }
+// }
 
-function inputValueCellSix () {
-    if (cellSix.textContent === 'X') {
-        cellSix.textContent = ''
-    } else if (cellSix.textContent === 'X') {
-        cellSix.textContent = 'O'
-    } else if (cellSix.textContent === 'O') {
-        cellSix.textContent = 'X'
-    } else if (cellSix.textContent === '') {
-        cellSix.textContent = 'O'
-    }
-}
+// function inputValueCellSix () {
+//     if (cellSix.textContent === 'X') {
+//         cellSix.textContent = ''
+//     } else if (cellSix.textContent === 'X') {
+//         cellSix.textContent = 'O'
+//     } else if (cellSix.textContent === 'O') {
+//         cellSix.textContent = 'X'
+//     } else if (cellSix.textContent === '') {
+//         cellSix.textContent = 'O'
+//     }
+// }
 
-function inputValueCellSeven () {
-    if (cellSeven.textContent === 'X') {
-        cellSeven.textContent = ''
-    } else if (cellSeven.textContent === 'X') {
-        cellSeven.textContent = 'O'
-    } else if (cellSeven.textContent === 'O') {
-        cellSeven.textContent = 'X'
-    } else if (cellSeven.textContent === '') {
-        cellSeven.textContent = 'O'
-    }
-}
+// function inputValueCellSeven () {
+//     if (cellSeven.textContent === 'X') {
+//         cellSeven.textContent = ''
+//     } else if (cellSeven.textContent === 'X') {
+//         cellSeven.textContent = 'O'
+//     } else if (cellSeven.textContent === 'O') {
+//         cellSeven.textContent = 'X'
+//     } else if (cellSeven.textContent === '') {
+//         cellSeven.textContent = 'O'
+//     }
+// }
 
-function inputValueCellEight () {
-    if (cellEight.textContent === 'X') {
-        cellEight.textContent = ''
-    } else if (cellEight.textContent === 'X') {
-        cellEight.textContent = 'O'
-    } else if (cellEight.textContent === 'O') {
-        cellEight.textContent = 'X'
-    } else if (cellEight.textContent === '') {
-        cellEight.textContent = 'O'
-    }
-}
+// function inputValueCellEight () {
+//     if (cellEight.textContent === 'X') {
+//         cellEight.textContent = ''
+//     } else if (cellEight.textContent === 'X') {
+//         cellEight.textContent = 'O'
+//     } else if (cellEight.textContent === 'O') {
+//         cellEight.textContent = 'X'
+//     } else if (cellEight.textContent === '') {
+//         cellEight.textContent = 'O'
+//     }
+// }
 
-function inputValueCellNine () {
-    if (cellNine.textContent === 'X') {
-        cellNine.textContent = ''
-    } else if (cellNine.textContent === 'X') {
-        cellNine.textContent = 'O'
-    } else if (cellNine.textContent === 'O') {
-        cellNine.textContent = 'X'
-    } else if (cellNine.textContent === '') {
-        cellNine.textContent = 'O'
-    }
-}
+// function inputValueCellNine () {
+//     if (cellNine.textContent === 'X') {
+//         cellNine.textContent = ''
+//     } else if (cellNine.textContent === 'X') {
+//         cellNine.textContent = 'O'
+//     } else if (cellNine.textContent === 'O') {
+//         cellNine.textContent = 'X'
+//     } else if (cellNine.textContent === '') {
+//         cellNine.textContent = 'O'
+//     }
+// }
 
 
-cellOne.addEventListener('click', inputValueCellOne)
-cellTwo.addEventListener('click', inputValueCellTwo)
-cellThree.addEventListener('click', inputValueCellThree)
-cellFour.addEventListener('click', inputValueCellFour)
-cellFive.addEventListener('click', inputValueCellFive)
-cellSix.addEventListener('click', inputValueCellSix)
-cellSeven.addEventListener('click', inputValueCellSeven)
-cellEight.addEventListener('click', inputValueCellEight)
-cellNine.addEventListener('click', inputValueCellNine)
+// cellOne.addEventListener('click', inputValueCellOne)
+// cellTwo.addEventListener('click', inputValueCellTwo)
+// cellThree.addEventListener('click', inputValueCellThree)
+// cellFour.addEventListener('click', inputValueCellFour)
+// cellFive.addEventListener('click', inputValueCellFive)
+// cellSix.addEventListener('click', inputValueCellSix)
+// cellSeven.addEventListener('click', inputValueCellSeven)
+// cellEight.addEventListener('click', inputValueCellEight)
+// cellNine.addEventListener('click', inputValueCellNine)
 
 /* Computer Logic
 cellOne.addEventListener('click', () => {
