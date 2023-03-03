@@ -32,110 +32,110 @@ function inputValueCellOne () {
 
 function inputValueCellTwo () {
     if (cellTwo.textContent === 'X') {
-        cellOne.textContent = ''
+        cellTwo.textContent = ''
     } else if (cellTwo.textContent === 'X') {
-        cellOne.textContent = 'O'
+        cellTwo.textContent = 'O'
     } else if (cellTwo.textContent === 'O') {
-        cellOne.textContent = 'X'
+        cellTwo.textContent = 'X'
     } else if (cellTwo.textContent === '') {
-        cellOne.textContent = 'O'
+        cellTwo.textContent = 'O'
     }
 }
 
 function inputValueCellThree () {
     if (cellThree.textContent === 'X') {
-        cellOne.textContent = ''
+        cellThree.textContent = ''
     } else if (cellThree.textContent === 'X') {
-        cellOne.textContent = 'O'
+        cellThree.textContent = 'O'
     } else if (cellThree.textContent === 'O') {
-        cellOne.textContent = 'X'
+        cellThree.textContent = 'X'
     } else if (cellThree.textContent === '') {
-        cellOne.textContent = 'O'
+        cellThree.textContent = 'O'
     }
 }
 
 function inputValueCellFour () {
     if (cellFour.textContent === 'X') {
-        cellOne.textContent = ''
+        cellFour.textContent = ''
     } else if (cellFour.textContent === 'X') {
-        cellOne.textContent = 'O'
+        cellFour.textContent = 'O'
     } else if (cellFour.textContent === 'O') {
-        cellOne.textContent = 'X'
+        cellFour.textContent = 'X'
     } else if (cellFour.textContent === '') {
-        cellOne.textContent = 'O'
+        cellFour.textContent = 'O'
     }
 }
 
 function inputValueCellFive () {
     if (cellFive.textContent === 'X') {
-        cellOne.textContent = ''
+        cellFive.textContent = ''
     } else if (cellFive.textContent === 'X') {
-        cellOne.textContent = 'O'
+        cellFive.textContent = 'O'
     } else if (cellFive.textContent === 'O') {
-        cellOne.textContent = 'X'
+        cellFive.textContent = 'X'
     } else if (cellFive.textContent === '') {
-        cellOne.textContent = 'O'
+        cellFive.textContent = 'O'
     }
 }
 
 function inputValueCellSix () {
-    if (cellOne.textContent === 'X') {
+    if (cellSix.textContent === 'X') {
         cellSix.textContent = ''
     } else if (cellSix.textContent === 'X') {
-        cellOne.textContent = 'O'
+        cellSix.textContent = 'O'
     } else if (cellSix.textContent === 'O') {
-        cellOne.textContent = 'X'
+        cellSix.textContent = 'X'
     } else if (cellSix.textContent === '') {
-        cellOne.textContent = 'O'
+        cellSix.textContent = 'O'
     }
 }
 
 function inputValueCellSeven () {
     if (cellSeven.textContent === 'X') {
-        cellOne.textContent = ''
+        cellSeven.textContent = ''
     } else if (cellSeven.textContent === 'X') {
-        cellOne.textContent = 'O'
+        cellSeven.textContent = 'O'
     } else if (cellSeven.textContent === 'O') {
-        cellOne.textContent = 'X'
+        cellSeven.textContent = 'X'
     } else if (cellSeven.textContent === '') {
-        cellOne.textContent = 'O'
+        cellSeven.textContent = 'O'
     }
 }
 
 function inputValueCellEight () {
     if (cellEight.textContent === 'X') {
-        cellOne.textContent = ''
+        cellEight.textContent = ''
     } else if (cellEight.textContent === 'X') {
-        cellOne.textContent = 'O'
+        cellEight.textContent = 'O'
     } else if (cellEight.textContent === 'O') {
-        cellOne.textContent = 'X'
+        cellEight.textContent = 'X'
     } else if (cellEight.textContent === '') {
-        cellOne.textContent = 'O'
+        cellEight.textContent = 'O'
     }
 }
 
 function inputValueCellNine () {
     if (cellNine.textContent === 'X') {
-        cellOne.textContent = ''
+        cellNine.textContent = ''
     } else if (cellNine.textContent === 'X') {
-        cellOne.textContent = 'O'
+        cellNine.textContent = 'O'
     } else if (cellNine.textContent === 'O') {
-        cellOne.textContent = 'X'
+        cellNine.textContent = 'X'
     } else if (cellNine.textContent === '') {
-        cellOne.textContent = 'O'
+        cellNine.textContent = 'O'
     }
 }
 
 
 cellOne.addEventListener('click', inputValueCellOne)
-cellOne.addEventListener('click', inputValueCellTwo)
-cellOne.addEventListener('click', inputValueCellThree)
-cellOne.addEventListener('click', inputValueCellFour)
-cellOne.addEventListener('click', inputValueCellFive)
-cellOne.addEventListener('click', inputValueCellSix)
-cellOne.addEventListener('click', inputValueCellSeven)
-cellOne.addEventListener('click', inputValueCellEight)
-cellOne.addEventListener('click', inputValueCellNine)
+cellTwo.addEventListener('click', inputValueCellTwo)
+cellThree.addEventListener('click', inputValueCellThree)
+cellFour.addEventListener('click', inputValueCellFour)
+cellFive.addEventListener('click', inputValueCellFive)
+cellSix.addEventListener('click', inputValueCellSix)
+cellSeven.addEventListener('click', inputValueCellSeven)
+cellEight.addEventListener('click', inputValueCellEight)
+cellNine.addEventListener('click', inputValueCellNine)
 
 /* Computer Logic
 cellOne.addEventListener('click', () => {
