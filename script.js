@@ -22,12 +22,19 @@ const initialiseCells = () => {
 const addCellEvents = () => {
     for(let i = 0; i < cells.length; i++){
         cells[i].addEventListener("click", (e) => {
-            console.log(e.target.id);
+            updateCellImage(e.target);            
         });
     }
 }
+
 initialiseCells();
 addCellEvents();
+
+const updateCellImage = (cell) => {
+    console.log(cell.id);
+    // your logics here
+}
+
 // cell reference example end
 
 /* Function to generate a random number between 1-9 */
