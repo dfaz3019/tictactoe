@@ -18,18 +18,18 @@
     cursor: pointer;
 }
 
-.cell-1, .cell-4, .cell-7 {
+#cell-1, #cell-4, #cell-7 {
     border-right: 2px solid black;
 }
 
-.cell-2, .cell-5, .cell-8 {
+#cell-2, #cell-5, #cell-8 {
     border-right: 2px solid black;
 }
 
-.cell-1, .cell-2, .cell-3 {
+#cell-1, #cell-2, #cell-3 {
     border-bottom: 2px solid black;
 }
 
-.cell-7, .cell-8, .cell-9 {
+#cell-7, #cell-8, #cell-9 {
     border-top: 2px solid black;
 }
