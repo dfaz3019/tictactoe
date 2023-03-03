@@ -10,6 +10,17 @@ var cellEight = document.querySelector('#cell-8');
 var cellNine = document.querySelector('#cell-9');
 
 
+// alternative way of initializing the cell references
+var cells = [];
+
+const initialiseCells = () => {
+    for(let i = 0; i < 9; i++){
+        cells[i] = document.querySelector(`#cell-${i+1}`);
+    }
+}
+initialiseCells();
+// cell reference example end
+
 /* Function to generate a random number between 1-9 */
 
 function randomNumber () {
