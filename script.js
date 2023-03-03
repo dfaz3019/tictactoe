@@ -19,15 +19,12 @@ initialiseCells();
 addCellEvents();
 
 const updateCellImage = (cell) => {
-    console.log(cell.id);
-    if (cell.textContent === 'X') {
-        cell.textContent = ''
-    } else if (cell.textContent === 'X') {
-        cell.textContent = 'O'
-    } else if (cell.textContent === 'O') {
-        cell.textContent = 'X'
-    } else if (cell.textContent === '') {
-        cell.textContent = 'O'
+    if (cell.textContent === '') {
+        cell.classList.add('xCell')
+    } else if (cell.classList.contains('xCell')) {
+        cell.classList.replace('xCell', 'circleCell')
+    } else if (cell.classList.contains('circleCell')) {
+        cell.classtList.replace('circleCell', '')
     }
 }
 
