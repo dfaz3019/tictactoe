@@ -94,7 +94,6 @@ const hasMatchingColumn = (cellSymbols) => {
 }
 
 const hasMatchingRow = (cellSymbols) => {
-    let numRows = 3;
     let result = {
         rowMatched: true, // If it's not a match, the logic below will flip it to false.
         matchedRowNumber: -1, // negative 1 means no match
