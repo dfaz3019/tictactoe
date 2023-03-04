@@ -39,7 +39,6 @@ const updateCellImage = (cell) => {
 // returns an array of the cell symbols (in order): "" = blank, circle = "circleCell", x = "xCell"
 const getAllCellSymbols = () => {
     let result = [];
-    let symbol = "";
     for (let i = 0; i < cells.length; i++) {
         // substring removes the "cell " portion of the className so we're just left with blank, xCell, or circleCell
         result[i] = cells[i].className.substring(5, cells[i].className.length);
