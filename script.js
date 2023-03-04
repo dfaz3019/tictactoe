@@ -41,6 +41,7 @@ const checkForMatchingSymbols = () => {
     let cellSymbols = getAllCellSymbols();
     hasMatchingColumn(cellSymbols);
     hasMatchingRow(cellSymbols);
+    hasMatchingDiagonal(cellSymbols);
 }
 
 
@@ -131,7 +132,42 @@ const hasMatchingRow = (cellSymbols) => {
 }
 
 const hasMatchingDiagonal = (cellSymbols) => {
-
+    let result = {
+        diagonalMatched: true, // If it's not a match, the logic below will flip it to false.
+        matchedDiagonalNumber: -1, // negative 1 means no match. if it's 0 then diagonal: top left to bottom right, if it's 2 then diagional top right too bottom left.
+        matchedSymbol: ""
+    }
+    // these loops are brutally hard to read, my bad :P
+    let lastSymbolIdentified = "";
+    for(let i = 0; i < 3; i+=2){ // i = cell number at top left and then cell number at top right.
+        let jIncrementor = i == 0 ? 4 : 2; // first iteration cells 0, 4, 8 evaluated, need to increment +4, 2nd iteration cells 2, 4, 6 evaluated, need to increment +2
+        let loopConditonal = jIncrementor == 4 ? 8 : 6;
+        for(let j = i; j <= loopConditonal; j+= jIncrementor){ // evaluating cell nums 0, 4, 8, then 2, 4, 6
+            if(cellSymbols[j] == "") { // stop evaluating the current column if we have a blank cell.
+                result.diagonalMatched = false; 
+                break;  
+            }
+            if(j == i){ // if it's the first iteration of this inner loop
+                lastSymbolIdentified = cellSymbols[j];
+            } else if (lastSymbolIdentified == cellSymbols[j]){ // logic for 2nd & 3rd iterations
+                continue; // if the cell symbol is the same, we've got  match so far, so continue
+            } else if(lastSymbolIdentified != cellSymbols[j]){ // logic for 2nd & 3rd iterations
+                result.diagonalMatched = false; // the symbol has differentiated, set it to false.
+                break; // no point evaluating the last cell of set (in the case of iteration 2/3) if the 2nd cell doesn't match the 1st evaluated cell
+            }
+        }
+        // if result.columnMatched is true here, then we've found a match, so set the matchedColumnNumber so we can return the result
+        if(result.diagonalMatched && lastSymbolIdentified !== "") {
+            result.matchedDiagonalNumber = i;
+            result.matchedSymbol = lastSymbolIdentified;
+            console.log("a diagonal match was found :O:O It's row starts with cell number: " + (result.matchedDiagonalNumber+1)
+            + " and has matching symbols of: " + lastSymbolIdentified);
+            return result;
+        }
+        // if the above conditional is true, the code won't reach here, meaning the above is not true if the code is here
+        result.diagonalMatched = true; // resetting back to true for the next iteration.
+    };
+    return result;
 }
 
 
