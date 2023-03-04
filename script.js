@@ -172,5 +172,22 @@ const hasMatchingDiagonal = (cellSymbols) => {
     return result;
 }
 
+/* Message box code - text is just for placeholding needs works */
+
+const updateMessageBox = () => {
+    
+    for (let i = 0; i < cells.length; i++) {
+        const date = new Date()
+        const currentTime = date.toDateString()
+        const messageBox = document.querySelector('.message-box')
+
+        cells[i].addEventListener('click', () => {
+            const boxContent = (`${currentTime}: ${cells[i].id} added to game board`)
+            messageBox.append(boxContent)
+        })
+    }
+}
+
+updateMessageBox()
 
 document.querySelector('.button').addEventListener('click', resetGame)
