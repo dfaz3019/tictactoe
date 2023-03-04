@@ -34,7 +34,13 @@ const updateCellImage = (cell) => {
         cell.classList.remove('circleCell');
     }
     // every time a new cell has changed check if there is a match.
-    hasMatchingColumn(getAllCellSymbols());
+    checkForMatchingSymbols();
+}
+
+const checkForMatchingSymbols = () => {
+    let cellSymbols = getAllCellSymbols();
+    hasMatchingColumn(cellSymbols);
+    hasMatchingRow(cellSymbols);
 }
 
 
@@ -56,20 +62,21 @@ const hasMatchingColumn = (cellSymbols) => {
         matchedSymbol: ""
     }
     // these loops are brutally hard to read, my bad :P
-    let lastSymbolIdentified = "";
+    var lastSymbolIdentified = "";
     for(let i = 0; i < numColumns; i++){ // i = columnNumber
         for(let j = i; j <= i+6; j+=3){ // increment j by 3 so that we just evaluate the cells in that column e.g. cell 0,3,6 / cell 1, 4, 7 / cell 2, 5, 8
+            if(cellSymbols[j] == "") { // stop evaluating the current column if we have a blank cell.
+                result.columnMatched = false; 
+                break;  
+            }
             if(j == i){ // if it's the first iteration of this inner loop
                 lastSymbolIdentified = cellSymbols[j];
             } else if (lastSymbolIdentified == cellSymbols[j]){ // logic for 2nd & 3rd iterations
                 continue; // if the cell symbol is the same, we've got  match so far, so continue
             } else if(lastSymbolIdentified != cellSymbols[j]){ // logic for 2nd & 3rd iterations
+                lastSymbolIdentified = cellSymbols[j];
                 result.columnMatched = false; // the symbol has differentiated, set it to false.
                 break; // no point evaluating the last cell of set (in the case of iteration 2/3) if the 2nd cell doesn't match the 1st evaluated cell
-            }
-            if(lastSymbolIdentified == "") { // stop evaluating the current column if we have a blank cell.
-                result.columnMatched = false; 
-                break;  
             }
         }
         // if result.columnMatched is true here, then we've found a match, so set the matchedColumnNumber so we can return the result
@@ -87,7 +94,41 @@ const hasMatchingColumn = (cellSymbols) => {
 }
 
 const hasMatchingRow = (cellSymbols) => {
-
+    let numRows = 3;
+    let result = {
+        rowMatched: true, // If it's not a match, the logic below will flip it to false.
+        matchedRowNumber: -1, // negative 1 means no match
+        matchedSymbol: ""
+    }
+    // these loops are brutally hard to read, my bad :P
+    let lastSymbolIdentified = "";
+    for(let i = 0; i < 7; i+=3){ // i = the cellNumber at the beginning of the row // rows start at cell 0, 3, and then 6 thus the += 3
+        for(let j = i; j < i+3; j++){ // the cell nums in rows: 0, 1, 2 / 3, 4, 5 / 6, 7, 8. Thus increment 1 each time for inner loop
+            if(cellSymbols[j] == "") { // stop evaluating the current column if we have a blank cell.
+                result.rowMatched = false; 
+                break;  
+            }
+            if(j == i){ // if it's the first iteration of this inner loop
+                lastSymbolIdentified = cellSymbols[j];
+            } else if (lastSymbolIdentified == cellSymbols[j]){ // logic for 2nd & 3rd iterations
+                continue; // if the cell symbol is the same, we've got  match so far, so continue
+            } else if(lastSymbolIdentified != cellSymbols[j]){ // logic for 2nd & 3rd iterations
+                result.rowMatched = false; // the symbol has differentiated, set it to false.
+                break; // no point evaluating the last cell of set (in the case of iteration 2/3) if the 2nd cell doesn't match the 1st evaluated cell
+            }
+        }
+        // if result.columnMatched is true here, then we've found a match, so set the matchedColumnNumber so we can return the result
+        if(result.rowMatched && lastSymbolIdentified !== "") {
+            result.matchedRowNumber = i;
+            result.matchedSymbol = lastSymbolIdentified;
+            console.log("a row match was found :O:O It's row starts with cell number: " + (result.matchedRowNumber+1)
+            + " and has matching symbols of: " + lastSymbolIdentified);
+            return result;
+        }
+        // if the above conditional is true, the code won't reach here, meaning the above is not true if the code is here
+        result.rowMatched = true; // resetting back to true for the next iteration.
+    };
+    return result;
 }
 
 const hasMatchingDiagonal = (cellSymbols) => {
