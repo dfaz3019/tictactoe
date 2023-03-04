@@ -15,6 +15,12 @@ const addCellEvents = () => {
     }
 }
 
+const resetGame = () => {
+    for (let i = 0; i < cells.length; i++) {
+        cells[i].classList.remove('xCell', 'circleCell')
+    }
+}
+
 initialiseCells();
 addCellEvents();
 
@@ -29,3 +35,4 @@ const updateCellImage = (cell) => {
 }
 
 
+document.querySelector('.button').addEventListener('click', resetGame)
