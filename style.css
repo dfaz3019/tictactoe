@@ -51,13 +51,14 @@
 #button-container {
     display: flex;
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
     margin-top: 15px;
     width: 100%;
 }
 
 .button {
     font-size: 26px;
+    font-family: 'Roboto', sans-serif;
+
     color: white;
     background-color: rgb(79, 154, 253);
     border-radius: 10px;
