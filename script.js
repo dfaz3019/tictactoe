@@ -39,6 +39,8 @@ const updateCellImage = (cell) => {
 
 const checkForMatchingSymbols = () => {
     let cellSymbols = getAllCellSymbols();
+    // These functions return an object which can be evaluated to determine if a row is found.
+    // TODO: evaluate the return object and take further action if a matching row / column / diagonal is found
     hasMatchingColumn(cellSymbols);
     hasMatchingRow(cellSymbols);
     hasMatchingDiagonal(cellSymbols);
