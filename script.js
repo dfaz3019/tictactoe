@@ -52,7 +52,8 @@ const hasMatchingColumn = (cellSymbols) => {
     let numColumns = 3;
     let result = {
         columnMatched: true, // If it's not a match, the logic below will flip it to false.
-        matchedColumnNumber: -1 // could potentially just return this (instead of object), as  we know it's not a match if it's -1
+        matchedColumnNumber: -1, // negative 1 means no match
+        matchedSymbol: ""
     }
     // these loops are brutally hard to read, my bad :P
     let lastSymbolIdentified = "";
@@ -66,11 +67,17 @@ const hasMatchingColumn = (cellSymbols) => {
                 result.columnMatched = false; // the symbol has differentiated, set it to false.
                 break; // no point evaluating the last cell of set (in the case of iteration 2/3) if the 2nd cell doesn't match the 1st evaluated cell
             }
+            if(lastSymbolIdentified == "") { // stop evaluating the current column if we have a blank cell.
+                result.columnMatched = false; 
+                break;  
+            }
         }
         // if result.columnMatched is true here, then we've found a match, so set the matchedColumnNumber so we can return the result
         if(result.columnMatched && lastSymbolIdentified !== "") {
             result.matchedColumnNumber = i;
-            console.log("a column match was found :O:O It's column number: " + (result.matchedColumnNumber+1));
+            result.matchedSymbol = lastSymbolIdentified;
+            console.log("a column match was found :O:O It's column number: " + (result.matchedColumnNumber+1)
+            + " and has matching symbols of: " + lastSymbolIdentified);
             return result;
         }
         // if the above conditional is true, the code won't reach here, meaning the above is not true if the code is here
