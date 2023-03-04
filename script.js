@@ -33,6 +33,8 @@ const updateCellImage = (cell) => {
     } else if (cell.className.includes('circleCell')) {
         cell.classList.remove('circleCell');
     }
+    // every time a new cell has changed check if there is a match.
+    hasMatchingColumn(getAllCellSymbols());
 }
 
 
@@ -44,6 +46,48 @@ const getAllCellSymbols = () => {
         result[i] = cells[i].className.substring(5, cells[i].className.length);
     }
     return result;
+}
+
+const hasMatchingColumn = (cellSymbols) => {
+    let numColumns = 3;
+    let result = {
+        columnMatched: true, // If it's not a match, the logic below will flip it to false.
+        matchedColumnNumber: -1 // could potentially just return this (instead of object), as  we know it's not a match if it's -1
+    }
+    // these loops are brutally hard to read, my bad :P
+    let lastSymbolIdentified = "";
+    for(let i = 0; i < numColumns; i++){ // i = columnNumber
+        for(let j = i; j <= i+6; j+=3){ // increment j by 3 so that we just evaluate the cells in that column e.g. cell 0,3,6 / cell 1, 4, 7 / cell 2, 5, 8
+            if(j == i){ // if it's the first iteration of this inner loop
+                lastSymbolIdentified = cellSymbols[j];
+            } else if (lastSymbolIdentified == cellSymbols[j]){ // logic for 2nd & 3rd iterations
+                continue; // if the cell symbol is the same, we've got  match so far, so continue
+            } else if(lastSymbolIdentified != cellSymbols[j]){ // logic for 2nd & 3rd iterations
+                result.columnMatched = false; // the symbol has differentiated, set it to false.
+                break; // no point evaluating the last cell of set (in the case of iteration 2/3) if the 2nd cell doesn't match the 1st evaluated cell
+            }
+        }
+        // if result.columnMatched is true here, then we've found a match, so set the matchedColumnNumber so we can return the result
+        if(result.columnMatched && lastSymbolIdentified !== "") {
+            result.matchedColumnNumber = i;
+            console.log("a column match was found :O:O It's column number: " + (result.matchedColumnNumber+1));
+            return result;
+        }
+        // after the inner loop ends, we need to evaluate results and tidy up before the next iteration of the inner loop
+        // if(result.matchedColumnNumber >= 0){ // we've found a match, so stop looping and return the result
+        // }
+        // if the above conditional is true, the code won't reach here, meaning the above is not true if the code is here
+        result.columnMatched = true; // resetting back to true for the next iteration.
+    };
+    return result;
+}
+
+const hasMatchingRow = () => {
+
+}
+
+const hasMatchingDiagonal = () => {
+
 }
 
 
