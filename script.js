@@ -73,20 +73,17 @@ const hasMatchingColumn = (cellSymbols) => {
             console.log("a column match was found :O:O It's column number: " + (result.matchedColumnNumber+1));
             return result;
         }
-        // after the inner loop ends, we need to evaluate results and tidy up before the next iteration of the inner loop
-        // if(result.matchedColumnNumber >= 0){ // we've found a match, so stop looping and return the result
-        // }
         // if the above conditional is true, the code won't reach here, meaning the above is not true if the code is here
         result.columnMatched = true; // resetting back to true for the next iteration.
     };
     return result;
 }
 
-const hasMatchingRow = () => {
+const hasMatchingRow = (cellSymbols) => {
 
 }
 
-const hasMatchingDiagonal = () => {
+const hasMatchingDiagonal = (cellSymbols) => {
 
 }
 
