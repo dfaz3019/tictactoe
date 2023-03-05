@@ -172,18 +172,57 @@ const hasMatchingDiagonal = (cellSymbols) => {
     return result;
 }
 
-/* Message box code - text is just for placeholding needs works */
+
+/*This function will convert the hours into 12 hour time and suffix an am/pm*/
+
+const getTime = () => {
+    const date = new Date();
+    var ampm = ""
+    var isNoonOrLater = ""
+    var tenMinutesOrLess = ""
+
+    if (date.getHours() >= 12) {
+        isNoonOrLater = date.getHours() - 12
+        ampm = 'PM'
+    } else {
+        ampm = 'AM'
+    }
+
+    /*This function will check if the minutes of the clock are less than 10, if so it will prefix the minute with a 0 - for tidyness*/
+
+    if(date.getMinutes() < 10) {
+        tenMinutesOrLess = '0'+date.getMinutes()
+    } else {
+        tenMinutesOrLess = date.getMinutes()
+    }
+
+    const currentTime = `${isNoonOrLater}:${tenMinutesOrLess} ${ampm}`
+
+    return currentTime;
+}
+
+
+const validateMessageBoxSize = () => {
+    
+}
+
+
+const displayMessage = (message) => {
+        const messageBox = document.querySelector('.message-box')
+        const paragraph = document.createElement('p')
+        paragraph.classList.add('message-box-paragraph')
+        messageBox.prepend(paragraph)
+        messageBox.prepend(message)
+        validateMessageBoxSize()
+}
 
 const updateMessageBox = () => {
     
     for (let i = 0; i < cells.length; i++) {
-        const date = new Date()
-        const currentTime = date.toDateString()
-        const messageBox = document.querySelector('.message-box')
-
+        
         cells[i].addEventListener('click', () => {
-            const boxContent = (`${currentTime}: ${cells[i].id} added to game board`)
-            messageBox.append(boxContent)
+            var message = (`${getTime()}: ${cells[i].className.includes('xCell') ? 'Cross' : 'Circle'} added to game board`)
+            displayMessage(message)
         })
     }
 }
