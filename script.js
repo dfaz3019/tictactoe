@@ -200,16 +200,13 @@ const getTime = () => {
     return currentTime;
 }
 
-var messageCount = 0
-
-
 const displayMessage = (message) => {
         const messageBox = document.querySelector('.message-box')
         const paragraph = document.createElement('p')
         paragraph.innerHTML = message
         paragraph.classList.add('message-box-paragraph')
         messageBox.prepend(paragraph)
-        messageCount++
+        messageCount = messageBox.children.length
         validateMessageBoxSize(messageCount)
 }
 
