@@ -179,9 +179,7 @@ const getTime = () => {
     const date = new Date();
     var hours = date.getHours() - 12
     var minutes = ""
-    var timeSuffix = ""
-
-    hours <= 12 ? timeSuffix = 'PM' : timeSuffix = 'AM'
+    var timeSuffix = hours <= 12 ? 'PM' : 'AM'
 
     /*This function will check if the minutes of the clock are less than 10, if so it will prefix the minute with a 0 - for tidyness*/
 
