@@ -178,11 +178,10 @@ const hasMatchingDiagonal = (cellSymbols) => {
 const getTime = () => {
     const date = new Date();
     var timeSuffix = ""
-    var hours = ""
+    var hours = date.getHours() - 12
     var minutes = ""
 
-    if (date.getHours() >= 12) {
-        hours = date.getHours() - 12
+    if (hours <= 12) {
         timeSuffix = 'PM'
     } else {
         timeSuffix = 'AM'
