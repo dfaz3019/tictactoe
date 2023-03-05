@@ -177,26 +177,26 @@ const hasMatchingDiagonal = (cellSymbols) => {
 
 const getTime = () => {
     const date = new Date();
-    var ampm = ""
-    var isNoonOrLater = ""
-    var tenMinutesOrLess = ""
+    var timeSuffix = ""
+    var hours = ""
+    var minutes = ""
 
     if (date.getHours() >= 12) {
-        isNoonOrLater = date.getHours() - 12
-        ampm = 'PM'
+        hours = date.getHours() - 12
+        timeSuffix = 'PM'
     } else {
-        ampm = 'AM'
+        timeSuffix = 'AM'
     }
 
     /*This function will check if the minutes of the clock are less than 10, if so it will prefix the minute with a 0 - for tidyness*/
 
     if(date.getMinutes() < 10) {
-        tenMinutesOrLess = '0'+date.getMinutes()
+        minutes = '0'+date.getMinutes()
     } else {
-        tenMinutesOrLess = date.getMinutes()
+        minutes = date.getMinutes()
     }
 
-    const currentTime = `${isNoonOrLater}:${tenMinutesOrLess} ${ampm}`
+    const currentTime = `${hours}:${minutes} ${timeSuffix}`
 
     return currentTime;
 }
