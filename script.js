@@ -177,15 +177,11 @@ const hasMatchingDiagonal = (cellSymbols) => {
 
 const getTime = () => {
     const date = new Date();
-    var timeSuffix = ""
     var hours = date.getHours() - 12
     var minutes = ""
+    var timeSuffix = ""
 
-    if (hours <= 12) {
-        timeSuffix = 'PM'
-    } else {
-        timeSuffix = 'AM'
-    }
+    hours <= 12 ? timeSuffix = 'PM' : timeSuffix = 'AM'
 
     /*This function will check if the minutes of the clock are less than 10, if so it will prefix the minute with a 0 - for tidyness*/
 
