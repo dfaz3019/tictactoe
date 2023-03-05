@@ -200,20 +200,28 @@ const getTime = () => {
     return currentTime;
 }
 
-
-const validateMessageBoxSize = () => {
-    
-}
+var messageCount = 0
 
 
 const displayMessage = (message) => {
         const messageBox = document.querySelector('.message-box')
         const paragraph = document.createElement('p')
+        paragraph.innerHTML = message
         paragraph.classList.add('message-box-paragraph')
         messageBox.prepend(paragraph)
-        messageBox.prepend(message)
-        validateMessageBoxSize()
+        messageCount++
+        validateMessageBoxSize(messageCount)
 }
+
+const validateMessageBoxSize = (messageCount) => {
+    let messageBoxLimit = 5
+    if (messageCount > messageBoxLimit) {
+        const messageBox = document.querySelector('.message-box')
+        messageBox.removeChild(messageBox.lastChild)
+    }
+    
+}
+
 
 const updateMessageBox = () => {
     
