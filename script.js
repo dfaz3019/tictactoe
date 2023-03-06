@@ -16,11 +16,24 @@ const addCellEvents = () => {
     }
 }
 
-const resetGame = () => {
+function removeParagraph () {
+    let messageBox = document.querySelector('.message-box')
+    let lastChild = document.querySelector('.message-box').lastChild
+        if (messageBox.children.length !== 0) {
+            messageBox.removeChild(lastChild)
+            setTimeout(removeParagraph, 500)
+        } else {
+            clearTimeout(removeParagraph)
+        }
+}
+
+function resetGame () {
     for (let i = 0; i < cells.length; i++) {
         cells[i].classList.remove('xCell', 'circleCell')
     }
+    removeParagraph()
 }
+
 
 initialiseCells();
 addCellEvents();
